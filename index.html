@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a1a2f" />
+  <meta name="theme-color" content="#0b1222" />
   <title>AP_Devs — Automações e IA sob medida</title>
   <meta name="description" content="AP_Devs transforma processos lentos em fluxos inteligentes com automações personalizadas e IA aplicada ao seu negócio." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,16 +15,19 @@
 
   <style>
     :root {
-      --ink: #0a1a2f;
-      --graphite: #1f242c;
-      --cyan: #14e3ff;
-      --lime: #7cff6b;
-      --amber: #ffb347;
-      --magenta: #ff5db1;
-      --ice: #f2f6fa;
-      --steel: #9fb2c7;
-      --glass: rgba(15, 27, 44, 0.7);
-      --glow: 0 0 30px rgba(20, 227, 255, 0.35);
+      --ink: #0b1222;
+      --graphite: #162238;
+      --navy: #0c1b33;
+      --royal: #0b4aa1;
+      --cyan: #2cc8ff;
+      --lime: #8fffd0;
+      --amber: #f9a23a;
+      --gold: #ffd166;
+      --magenta: #ff8b5c;
+      --ice: #f5f7fb;
+      --steel: #b6c3d9;
+      --glass: rgba(12, 24, 44, 0.78);
+      --glow: 0 0 28px rgba(44, 200, 255, 0.35);
       --radius: 18px;
     }
 
@@ -31,7 +36,11 @@
     body {
       font-family: "Manrope", sans-serif;
       color: var(--ice);
-      background: linear-gradient(180deg, #081120 0%, #0a1a2f 45%, #0b1424 100%);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(44, 200, 255, 0.2), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(249, 162, 58, 0.25), transparent 38%),
+        radial-gradient(circle at 70% 80%, rgba(11, 74, 161, 0.35), transparent 50%),
+        linear-gradient(180deg, #070d1b 0%, #0b1426 45%, #0b1220 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -43,7 +52,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: linear-gradient(90deg, rgba(8, 15, 28, 0.85), rgba(8, 15, 28, 0.65));
+      background: linear-gradient(90deg, rgba(7, 13, 24, 0.88), rgba(12, 23, 41, 0.7));
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -51,9 +60,10 @@
       max-width: 1120px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
       padding: 18px 24px;
+      column-gap: 22px;
     }
 
     .logo {
@@ -66,22 +76,15 @@
       justify-self: start;
     }
 
-    .logo-badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(20,227,255,0.3), rgba(255,93,177,0.15));
-      border: 1px solid rgba(20,227,255,0.6);
-      display: grid;
-      place-items: center;
-      box-shadow: var(--glow);
-    }
-
-    .logo-badge span {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      border: 2px solid var(--cyan);
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: rgba(7, 13, 27, 0.85);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 4px;
+      box-shadow: 0 0 24px rgba(44, 200, 255, 0.35), 0 12px 30px rgba(0,0,0,0.35);
     }
 
     .menu {
@@ -110,16 +113,16 @@
     .cta {
       padding: 12px 20px;
       border-radius: 999px;
-      background: linear-gradient(120deg, rgba(20,227,255,0.35), rgba(124,255,107,0.2));
-      border: 1px solid rgba(20,227,255,0.8);
-      color: var(--ice);
+      background: linear-gradient(120deg, rgba(249,162,58,0.95), rgba(255,209,102,0.95));
+      border: 1px solid rgba(255,209,102,0.9);
+      color: #2b1a05;
       font-weight: 600;
       font-size: 0.95rem;
-      box-shadow: var(--glow);
+      box-shadow: 0 0 30px rgba(249, 162, 58, 0.35);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       justify-self: end;
     }
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(20,227,255,0.55); }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(249, 162, 58, 0.55); }
 
     main { position: relative; z-index: 1; }
 
@@ -152,7 +155,7 @@
       text-transform: uppercase;
       font-size: 0.8rem;
       letter-spacing: 0.2em;
-      color: rgba(20,227,255,0.7);
+      color: rgba(44, 200, 255, 0.75);
     }
 
     .section-header {
@@ -177,7 +180,7 @@
     .muted { color: rgba(242,246,250,0.65); }
 
     .title-gradient {
-      background: linear-gradient(90deg, var(--cyan), var(--magenta), var(--amber));
+      background: linear-gradient(90deg, var(--cyan), var(--amber), var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -188,7 +191,7 @@
       display: block;
       width: 88px;
       height: 4px;
-      background: linear-gradient(90deg, var(--cyan), var(--magenta), var(--amber));
+      background: linear-gradient(90deg, var(--cyan), var(--amber), var(--gold));
       border-radius: 999px;
       margin-top: 14px;
     }
@@ -196,7 +199,7 @@
     .hero {
       min-height: 70vh;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: center;
       gap: 32px;
       padding-top: 70px;
@@ -205,10 +208,10 @@
     .hero-copy {
       display: grid;
       gap: 14px;
-      justify-items: center;
+      justify-items: start;
       width: min(100%, 1080px);
       margin: 0 auto;
-      text-align: center;
+      text-align: left;
       align-content: center;
     }
 
@@ -229,8 +232,9 @@
       padding: 12px 20px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.2);
-      color: var(--steel);
+      color: var(--ice);
       font-weight: 600;
+      background: rgba(10, 18, 34, 0.6);
     }
 
     .chips {
@@ -246,7 +250,7 @@
       padding: 18px;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(15, 25, 40, 0.9);
+      background: rgba(13, 22, 38, 0.92);
       font-size: 0.95rem;
       --accent: var(--cyan);
       color: var(--accent);
@@ -277,7 +281,7 @@
     .metric {
       padding: 18px;
       border-radius: var(--radius);
-      background: rgba(15, 25, 40, 0.9);
+      background: rgba(12, 22, 38, 0.92);
       border: 1px solid rgba(255,255,255,0.08);
       --accent: var(--cyan);
     }
@@ -290,7 +294,39 @@
     }
 
     .hero-visual {
-      display: none;
+      display: grid;
+      place-items: center;
+      justify-self: start;
+      margin-left: clamp(8px, 2vw, 24px);
+    }
+
+    .logo-frame {
+      position: relative;
+      padding: 26px;
+      border-radius: 32px;
+      background: linear-gradient(150deg, rgba(11, 20, 38, 0.98), rgba(8, 15, 29, 0.92));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.45), 0 0 45px rgba(44, 200, 255, 0.2);
+      overflow: hidden;
+    }
+
+    .logo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background: radial-gradient(circle at 20% 20%, rgba(249, 162, 58, 0.35), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(44, 200, 255, 0.35), transparent 55%);
+      opacity: 0.8;
+      z-index: 0;
+      filter: blur(6px);
+    }
+
+    .logo-frame img {
+      position: relative;
+      z-index: 1;
+      width: min(360px, 85vw);
+      height: auto;
+      display: block;
     }
 
     .flow-tag {
@@ -299,9 +335,9 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(20,227,255,0.12);
-      border: 1px solid rgba(20,227,255,0.4);
-      color: var(--cyan);
+      background: rgba(44, 200, 255, 0.14);
+      border: 1px solid rgba(44, 200, 255, 0.5);
+      color: var(--ice);
       font-size: 0.78rem;
       margin-bottom: 20px;
     }
@@ -350,7 +386,7 @@
     .value-card {
       padding: 20px;
       border-radius: var(--radius);
-      background: rgba(18, 28, 44, 0.9);
+      background: rgba(14, 24, 40, 0.92);
       border: 1px solid rgba(255,255,255,0.08);
       min-height: 120px;
       --accent: var(--cyan);
@@ -366,14 +402,14 @@
     .pillar {
       padding: 24px;
       border-radius: var(--radius);
-      background: linear-gradient(140deg, rgba(18,28,44,0.95), rgba(15,22,34,0.95));
+      background: linear-gradient(140deg, rgba(18,28,44,0.98), rgba(12,18,30,0.96));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 20px 60px rgba(0,0,0,0.35);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       --accent: var(--cyan);
     }
 
-    .pillar:hover { transform: translateY(-6px); box-shadow: 0 25px 70px rgba(20,227,255,0.18); }
+    .pillar:hover { transform: translateY(-6px); box-shadow: 0 25px 70px rgba(44, 200, 255, 0.18); }
 
     .pillar-icon {
       width: 44px;
@@ -395,7 +431,7 @@
     .service-card {
       padding: 20px;
       border-radius: var(--radius);
-      background: rgba(16, 24, 38, 0.9);
+      background: rgba(12, 22, 36, 0.92);
       border: 1px solid rgba(255,255,255,0.08);
       --accent: var(--cyan);
     }
@@ -426,14 +462,14 @@
     .diff-card {
       padding: 20px;
       border-radius: var(--radius);
-      background: rgba(14, 23, 38, 0.92);
+      background: rgba(12, 22, 36, 0.92);
       border: 1px solid rgba(255,255,255,0.08);
       --accent: var(--cyan);
     }
 
     .rio {
       position: relative;
-      background: linear-gradient(120deg, rgba(10,26,47,0.85), rgba(31,36,44,0.9));
+      background: linear-gradient(120deg, rgba(10, 22, 40, 0.92), rgba(20, 26, 44, 0.95));
       border-radius: var(--radius);
       padding: 40px;
       border: 1px solid rgba(255,255,255,0.08);
@@ -447,7 +483,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M0,300 C120,260 220,220 360,240 C520,270 620,220 800,260 L800,400 L0,400 Z" fill="%2314E3FF" opacity="0.14"/></svg>') no-repeat bottom;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M0,300 C120,260 220,220 360,240 C520,270 620,220 800,260 L800,400 L0,400 Z" fill="%232CC8FF" opacity="0.18"/></svg>') no-repeat bottom;
       background-size: cover;
       opacity: 0.9;
       pointer-events: none;
@@ -466,7 +502,7 @@
       padding: 8px 14px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(20,227,255,0.1);
+      background: rgba(44, 200, 255, 0.12);
       font-size: 0.85rem;
       color: var(--ice);
     }
@@ -481,7 +517,7 @@
 
     details {
       border-radius: 14px;
-      background: rgba(16, 25, 40, 0.9);
+      background: rgba(12, 22, 38, 0.92);
       border: 1px solid rgba(255,255,255,0.08);
       padding: 16px 20px;
     }
@@ -501,7 +537,7 @@
       gap: 20px;
       padding: 40px;
       border-radius: var(--radius);
-      background: rgba(13, 22, 36, 0.92);
+      background: rgba(11, 20, 36, 0.94);
       border: 1px solid rgba(255,255,255,0.08);
       text-align: center;
       width: min(100%, 920px);
@@ -514,6 +550,38 @@
       gap: 16px;
       align-items: center;
       justify-content: center;
+    }
+
+    .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.95), rgba(34, 184, 95, 0.95));
+      color: #0b1b12;
+      font-weight: 600;
+      border: 1px solid rgba(37, 211, 102, 0.7);
+      box-shadow: 0 0 28px rgba(37, 211, 102, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .whatsapp:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(37, 211, 102, 0.5); }
+
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(11, 27, 18, 0.12);
+    }
+
+    .whatsapp svg {
+      width: 16px;
+      height: 16px;
+      fill: #0b1b12;
     }
 
     footer {
@@ -538,14 +606,15 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(20,227,255,0.4);
-      color: var(--cyan);
+      border: 1px solid rgba(44, 200, 255, 0.5);
+      color: var(--ice);
       font-size: 0.85rem;
     }
 
     @media (max-width: 1100px) {
-      .hero { text-align: center; }
-      .hero-copy { justify-items: center; }
+      .hero { text-align: center; grid-template-columns: 1fr; }
+      .hero-copy { justify-items: center; text-align: center; }
+      .hero-visual { justify-self: center; margin-left: 0; }
       .hero-actions,
       .chips { justify-content: center; }
       .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -584,15 +653,22 @@
   <header>
     <div class="nav">
       <div class="logo">
-        <span class="logo-badge"><span></span></span>
-        AP_Devs
+        <img class="logo-mark" src="logo.png" alt="AP_Devs" />
+        <span>AP_Devs</span>
       </div>
       <nav class="menu">
         <a href="#solucoes">Soluções</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#contato">Contato</a>
       </nav>
-      <a class="cta" href="#contato">Solicitar Diagnóstico</a>
+      <a class="whatsapp" href="https://wa.me/5521990602254?text=Ol%C3%A1%2C%20tudo%20bem%20%3F!%20Vim%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20!" target="_blank" rel="noopener">
+        <span class="whatsapp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M12 0C5.38 0 0 5.38 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.2-1.62A11.94 11.94 0 0 0 12 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.48-8.52A11.95 11.95 0 0 0 12 0zm0 22.05a10.07 10.07 0 0 1-5.14-1.41l-.37-.22-3.68.96.98-3.58-.24-.37A10.06 10.06 0 1 1 12 22.05zm5.54-7.61c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.02 1-1.02 2.45s1.04 2.85 1.2 3.05c.15.2 2.05 3.13 5.02 4.39.71.3 1.27.49 1.7.63.7.22 1.34.2 1.85.12.57-.09 1.77-.72 2.02-1.38.25-.67.25-1.24.17-1.36-.08-.12-.27-.2-.57-.35z"/>
+          </svg>
+        </span>
+        Chamar no WhatsApp
+      </a>
     </div>
   </header>
 
@@ -603,7 +679,14 @@
         <h1><span class="title-gradient">AP_Devs</span>: Inteligência Artificial que escala sua operação enquanto você foca no que importa.</h1>
         <p>Transformamos processos lentos em fluxos inteligentes com automações personalizadas, IA aplicada e integração total com seus sistemas.</p>
         <div class="hero-actions">
-          <a class="cta" href="#contato">Solicitar Diagnóstico</a>
+          <a class="whatsapp" href="https://wa.me/5521990602254?text=Ol%C3%A1%2C%20tudo%20bem%20%3F!%20Vim%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20!" target="_blank" rel="noopener">
+            <span class="whatsapp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M12 0C5.38 0 0 5.38 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.2-1.62A11.94 11.94 0 0 0 12 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.48-8.52A11.95 11.95 0 0 0 12 0zm0 22.05a10.07 10.07 0 0 1-5.14-1.41l-.37-.22-3.68.96.98-3.58-.24-.37A10.06 10.06 0 1 1 12 22.05zm5.54-7.61c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.02 1-1.02 2.45s1.04 2.85 1.2 3.05c.15.2 2.05 3.13 5.02 4.39.71.3 1.27.49 1.7.63.7.22 1.34.2 1.85.12.57-.09 1.77-.72 2.02-1.38.25-.67.25-1.24.17-1.36-.08-.12-.27-.2-.57-.35z"/>
+              </svg>
+            </span>
+            Chamar no WhatsApp
+          </a>
           <a class="ghost" href="#solucoes">Ver Soluções</a>
         </div>
         <div class="chips">
@@ -635,13 +718,18 @@
           </div>
         </div>
       </div>
+      <div class="hero-visual">
+        <div class="logo-frame">
+          <img src="logo.png" alt="Mascote AP_Devs" />
+        </div>
+      </div>
     </section>
 
     <section class="section reveal" id="diferenciais">
       <div class="section-header">
         <div class="chapter">Capítulo 01 — Valor</div>
         <h2 class="spectrum">Tecnologia de ponta para negócios de todos os tamanhos.</h2>
-        <p>Da pequena empresa em expansão à grande corporação, a AP_Devs adapta automações e IA ao seu ritmo, orçamento e complexidade — sem travas, sem soluções engessadas.</p>
+        <p>Para qualquer que seja o tamanho da sua empresa, a AP_Devs molda automações e IA ao seu cenário. Adaptamos a tecnologia ao seu ritmo, orçamento e complexidade — eliminando soluções engessadas.</p>
       </div>
       <div class="value-grid">
         <div class="value-card accent-cyan">
@@ -800,8 +888,14 @@
         <h2 class="spectrum">Pronto para transformar seus processos?</h2>
         <p>Solicite um diagnóstico e descubra onde a automação e a IA geram mais impacto no seu negócio.</p>
         <div class="contact-actions">
-          <a class="cta" href="mailto:atendimento@apdevs.com.br">Solicitar Diagnóstico</a>
-          <span>atendimento@apdevs.com.br · (21) 0000-0000</span>
+          <a class="whatsapp" href="https://wa.me/5521990602254?text=Ol%C3%A1%2C%20tudo%20bem%20%3F!%20Vim%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20!" target="_blank" rel="noopener">
+            <span class="whatsapp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M12 0C5.38 0 0 5.38 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.2-1.62A11.94 11.94 0 0 0 12 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.48-8.52A11.95 11.95 0 0 0 12 0zm0 22.05a10.07 10.07 0 0 1-5.14-1.41l-.37-.22-3.68.96.98-3.58-.24-.37A10.06 10.06 0 1 1 12 22.05zm5.54-7.61c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.02 1-1.02 2.45s1.04 2.85 1.2 3.05c.15.2 2.05 3.13 5.02 4.39.71.3 1.27.49 1.7.63.7.22 1.34.2 1.85.12.57-.09 1.77-.72 2.02-1.38.25-.67.25-1.24.17-1.36-.08-.12-.27-.2-.57-.35z"/>
+              </svg>
+            </span>
+            Chamar no WhatsApp
+          </a>
         </div>
       </div>
     </section>
@@ -815,7 +909,7 @@
       </div>
       <div>
         atendimento@apdevs.com.br<br />
-        (21) 0000-0000
+        (21) 99060-2254
       </div>
       <div>
         <span class="made-in-rio">Made in Rio</span>
